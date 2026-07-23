@@ -1,0 +1,6 @@
+aiohttp
+selectolax
+redis
+streamlit
+pandas
+matplotlib

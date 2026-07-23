@@ -1,0 +1,27 @@
+[
+  {
+    "workers": 1,
+    "pages_per_sec": 30.9,
+    "crawled": 401
+  },
+  {
+    "workers": 2,
+    "pages_per_sec": 56.9,
+    "crawled": 401
+  },
+  {
+    "workers": 4,
+    "pages_per_sec": 101.5,
+    "crawled": 401
+  },
+  {
+    "workers": 8,
+    "pages_per_sec": 179.3,
+    "crawled": 401
+  },
+  {
+    "workers": 16,
+    "pages_per_sec": 264.7,
+    "crawled": 401
+  }
+]
