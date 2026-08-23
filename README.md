@@ -143,7 +143,3 @@ Highlights:
   memory savings; never re-crawls).
 - Swap Redis lists for **Kafka** for a durable, high-throughput queue.
 - Separate fetch and parse tiers so each scales independently.
-
-## License
-
-MIT (or your choice).
