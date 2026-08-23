@@ -72,14 +72,6 @@ crawled exactly once.
 
 Change the `CRAWL_NS` env var to run isolated crawls side by side.
 
-## Interview notes
-- **Why atomic?** Without it, the classic check-then-act race lets two workers
-  both pass the "is it new?" gate and enqueue the same URL. `SADD` collapses
-  check-and-add into one atomic op.
-- **Why `BRPOP`?** Blocking pop means idle workers sleep instead of
-  busy-polling Redis — less load, instant pickup when work arrives.
-- **Why stateless workers?** All state is in Redis, so scaling out = start more
-  workers. This is the setup for the Phase 5 benchmark (throughput vs workers).
 
 ## Still deferred
 - Bloom filter for memory-efficient dedup at scale → optional Phase 2.5
