@@ -61,14 +61,7 @@ suspiciously perfect straight line.
 4. The Space auto-runs `streamlit run dashboard.py`. Run the crawler from Colab
    pointed at the same Redis, and the dashboard updates live.
 
-## Interview notes
-- **Throughput vs workers** is the headline result; lead your README with
-  `benchmark.png`.
-- **Sub-linear scaling** → talk about Amdahl's law, the serial fraction
-  (Redis ops), and how you'd remove the bottleneck: shard the frontier by
-  domain hash, partition the bloom filter, move to Kafka.
-- **The dashboard** demonstrates operational maturity — you didn't just build
-  it, you can observe it.
+
 
 ## The full project, recapped
 | Phase | Adds | Key concept |
