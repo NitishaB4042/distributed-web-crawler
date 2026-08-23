@@ -63,16 +63,7 @@ python test_phase3.py
 - `crawl:crawldelay` — HASH of domain -> Crawl-delay seconds
 - `crawl:stats` now also tracks `throttled` and `robots_blocked`
 
-## Interview notes
-- **Why Lua, not Python-side check?** Atomicity. Redis runs a script start to
-  finish without interleaving other commands, so the read-modify-write is
-  race-free across all workers. A Python `get` then `set` is not.
-- **Why per-domain, not global?** Politeness is a per-host concern — you can
-  crawl 100 domains in parallel but must be gentle with each one.
-- **Why requeue on throttle instead of blocking?** The worker stays useful: it
-  drops the throttled URL back and could pick up work for another domain rather
-  than sleeping on one slow host. (Current version backs off briefly; a
-  priority/delayed queue is the next refinement.)
+
 
 ## Still deferred
 - Crash recovery / claim pattern / retries / dead-letter → **Phase 4**
