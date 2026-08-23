@@ -80,16 +80,7 @@ python test_phase4.py
   `"depth|url"`; we needed the attempt counter for retries)
 - `crawl:stats` adds `retried`, `recovered`, `dead_lettered`
 
-## Interview notes
-- **Visibility timeout** is the tuning knob: too short → healthy-but-slow
-  workers get their jobs stolen (duplicate work); too long → slow recovery
-  after a real crash. This is the exact trade SQS exposes.
-- **Why a ZSET for in-flight?** Scored by deadline, so "find everything expired"
-  is a single `ZRANGEBYSCORE -inf now` — O(log n + m).
-- **Why JSON jobs?** The retry counter must travel with the URL. The member
-  bytes are the ZSET key, so `json.dumps(sort_keys=True)` keeps them stable.
-- **This mirrors real systems**: claim = SQS receive, visibility_timeout = SQS
-  visibility timeout, ack = delete-message, DLQ = SQS dead-letter queue.
+
 
 ## Still deferred
 - Metrics dashboard + benchmarks → **Phase 5** (the last phase)
